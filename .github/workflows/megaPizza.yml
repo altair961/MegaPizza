@@ -27,9 +27,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
 
-  #     - name: Build the Docker image
-  #       working-directory: Restaurant/Restaurant.RestApi
-  #       run: docker build . -t altair961/restaurant:latest
+      - name: Build the Docker image
+        working-directory: .
+        run: docker build . -t altair961/restaurant:latest
     
   #     - name: Log into Docker Hub
   #       uses: docker/login-action@v3
