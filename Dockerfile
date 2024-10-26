@@ -1,8 +1,10 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+FROM golang:alpine AS builder
 
-FROM golang:1.15 as builder
-ARG CGO_ENABLED=0
-WORKDIR /app
+# Set destination in the image for COPY
+WORKDIR /build
+
+# Copying from current folder to destination in image
+COPY go.mod main.go ./
 
 # ENV ASPNETCORE_ENVIRONMENT=Development
 
