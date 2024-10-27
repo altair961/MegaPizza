@@ -29,7 +29,7 @@ jobs:
 
       - name: Build the Docker image
         working-directory: .
-        run: docker build . -t altair961/restaurant:latest
+        run: docker build . --tag altair961/mega-pizza:latest
     
       - name: Log into Docker Hub
         uses: docker/login-action@v3
@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push the images to Docker Hub
-        run: docker push altair961/restaurant
+        run: docker push altair961/mega-pizza
   # # This is a job called "deploy"
   # deploy:
   #   runs-on: ubuntu-latest
