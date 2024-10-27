@@ -1,6 +1,6 @@
-name: MegaPiza
+name: MegaPizza
 
-run-name: MegaPiza 🚀
+run-name: MegaPizza 🚀
 
 # Controls when the workflow will run
 on:
@@ -39,19 +39,19 @@ jobs:
 
       - name: Push the images to Docker Hub
         run: docker push altair961/mega-pizza
-  # # This is a job called "deploy"
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - name: Pull the image to VM
-  #       uses: appleboy/ssh-action@v1.0.3
-  #       with:
-  #         host: ${{ secrets.SSH_HOST }}
-  #         username: ${{ secrets.SSH_USER }}
-  #         key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #         script: | 
-  #           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/restaurant:latest         
-  #           docker stop restaurant || true
-  #           docker rm restaurant || true
-  #           docker run -d -p 80:8080 --name restaurant ${{ secrets.DOCKERHUB_USERNAME }}/restaurant:latest
+  # This is a job called "deploy"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Pull the image to VM
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: | 
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mega-pizza:latest
+            docker stop restaurant || true
+            docker rm restaurant || true
+            docker run -d -p 80:8080 --name mega-pizza ${{ secrets.DOCKERHUB_USERNAME }}/mega-pizza:latest
