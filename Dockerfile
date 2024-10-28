@@ -17,4 +17,4 @@ WORKDIR /build
 # Copy from "builder" image to our second image
 COPY --from=builder /build/hello /build/hello
 
-CMD [". /hello"]
+# CMD [". /hello"]
