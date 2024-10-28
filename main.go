@@ -13,4 +13,6 @@ func main() {
 		}
 		fmt.Println(fmt.Sprintf("Number of bytes written: %d", n))
 	})
+
+	_ = http.ListenAndServe(":81", nil)
 }
