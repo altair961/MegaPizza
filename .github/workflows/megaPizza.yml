@@ -54,4 +54,4 @@ jobs:
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mega-pizza:latest
             docker stop mega-pizza || true
             docker rm mega-pizza || true
-            docker run -d -p 81:8080 --name mega-pizza ${{ secrets.DOCKERHUB_USERNAME }}/mega-pizza:latest
+            docker run -d -p 80:8080 --name mega-pizza ${{ secrets.DOCKERHUB_USERNAME }}/mega-pizza:latest
