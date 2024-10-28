@@ -16,5 +16,5 @@ FROM alpine
 WORKDIR /build
 # Copy from "builder" image to our second image
 COPY --from=builder /build/hello /build/hello
-
+EXPOSE 8080
 CMD ["./hello"]
